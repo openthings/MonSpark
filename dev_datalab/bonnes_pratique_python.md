@@ -18,9 +18,9 @@
 
 ### Style
 
-Quelques règles extraiyent à partir de [PEP 8].
+Quelques règles extraites à partir de [PEP 8].
 
-#### Nommage
+#### 1. Nommage
 
 - Variables, fonctions, méthodes, paquets, modules
     - `lower_case_with_underscores`
@@ -90,7 +90,7 @@ Person.age = 42
 Person.set_age (42)
 ```
 
-#### Indentation
+#### 2. Indentation
 
 Utilisez 4 espaces - jamais les tabulations.
 
@@ -120,7 +120,7 @@ Mettez tous les imports en haut de la page avec trois sections, chacune séparé
 2. Importations tierces
 3. Importations de branches de sources locales
 
-#### Documentation
+#### 3. Documentation
 Une seule ligne (docstrings) par fonction
 
 ```
