@@ -1,18 +1,18 @@
 
 # Sommaire des bonnes pratique de développement en python
 
-## En générale : les règles générales à adopter dès le début 
+## En générale
 
 - Un code doit être fait pour les autres et non pour soir même.
 - Un code simple est mieux qu'un code fonctionnel (mais difficile à comprendre).
-- Préférer le beau du laid.
 - Face à l’ambiguïté, ne pas se laisser tenter à deviner.
 - Explicite est mieux que implicite
-- Tout le monde peut réparer le code de tout le monde. 
+- Ne jamais passer les erreurs sous silence, ou les faire taire explicitement.
 - Corriger chaque "fenêtre cassée" (mauvaise conception, mauvaise décision, ou mauvais code) ** dès qu'elle est découverte **.
 - Mieux vaut maintenant que jamais
 - Testez impitoyablement. Ecrire des documents pour les nouvelles fonctionnalités.
 - Encore plus important que Test-Driven Development - * Human-Driven Development *
+- Tout le monde peut réparer le code de tout le monde.
 
 ## En particulier
 
