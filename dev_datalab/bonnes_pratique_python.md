@@ -184,6 +184,18 @@ wiki = (
 )
 ```
 ### Développement piloté par les tests
+
+```
+import unittest
+
+def fun(x):
+    return x + 1
+
+class MyTest(unittest.TestCase):
+    def test_func(self):
+        self.assertEqual(fun(3), 4)
+ ``` 
+ 
 Le Test Driven Development est une méthode de programmation qui permet d’éviter des bugs a priori plutôt que de les résoudre a posteriori. Ce n’est pas une méthode propre à Python, elle est utilisée très largement par les programmeurs professionnels.
 
 Le cycle préconisé par TDD comporte cinq étapes :
@@ -201,16 +213,7 @@ Diviser pour mieux régner: chaque fonction, classe ou méthode est testée ind�
 3. Les tests système assurent le bon fonctionnement du programme dans sa globalité.
 
 Il est essentiel de garder tous les tests au cours du développement, ce qui permet de les réutiliser lorsque l’on veut compléter ou améliorer une partie du code. Si le nouveau code passe toujours les anciens test, on est alors sûr de ne pas avoir cassé les fonctionnalités précédentes.
-```
-import unittest
-
-def fun(x):
-    return x + 1
-
-class MyTest(unittest.TestCase):
-    def test_func(self):
-        self.assertEqual(fun(3), 4)
- ```       
+      
 **Attention** : Prendre l'habitude de tester toute fonction développé. Mais attention d'en faire une obssession.
 
 #### Tests unitaires
