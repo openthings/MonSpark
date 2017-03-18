@@ -18,9 +18,9 @@
 
 ### Style
 
-Suivez [PEP 8] [], quand sensible.
+Quelques règles extraiyent à partir de [PEP 8].
 
-#### Nommer
+#### Nommage
 
 - Variables, fonctions, méthodes, paquets, modules
     - `lower_case_with_underscores`
@@ -32,99 +32,100 @@ Suivez [PEP 8] [], quand sensible.
     - `__double_leading_underscore (self, ...)`
 - Constantes
     - `ALL_CAPS_WITH_UNDERSCORES`
-
+    
 ###### Principes directeurs généraux
 
 Évitez les variables à une lettre (en particulier `l`,` O`, `I`).
 
-* Exception *: En blocs très courts, lorsque le sens est clairement visible du contexte immédiat
+* Exception *: En blocs très courts, lorsque le sens est explicite
 
 **Bien**
+```
 Python
 Pour e dans les éléments:
     E.mutate ()
-......
+```
 
 Éviter l'étiquetage redondant.
 
 **Oui**
+```
 Python
 Import audio
 
 Core = audio.Core ()
 Controller = audio.Controller ()
-......
+```
 
 **Non**
+```
 Python
 Import audio
 
 Core = audio.AudioCore ()
 Controller = audio.AudioController ()
-......
+```
 
-Préfère la notation inverse.
+Préférer la notation inverse.
 
 **Oui**
+```
 Python
 Elements = ...
 Elements_active = ...
 Elements_defunct = ...
-......
+```
 
 **Non**
+```
 Python
 Elements = ...
 Active_elements = ...
 Defunct_elements ...
-......
+```
 
 Évitez les méthodes getter et setter.
 
 **Oui**
+```
 Python
 Person.age = 42
-......
-
+```
 **Non**
+```
 Python
 Person.set_age (42)
-......
+```
 
 #### Indentation
 
-Utilisez 4 espaces - jamais les onglets. Assez dit.
+Utilisez 4 espaces - jamais les tabulations.
 
 Importations ####
 
-Importez des modules entiers au lieu de symboles individuels dans un module. Par exemple, pour un module `canteen` qui possède un fichier` canteen / sessions.py`,
+Importez des modules entiers au lieu de symboles individuels dans un module. 
+Par exemple, pour un module `canteen` qui possède un fichier `canteen/sessions.py`,
 
 **Oui**
 
-Python
-Cantine d'importation
-Import canteen.sessions
-Des sessions d'importation de cantine
-......
+```python
+import canteen
+import canteen.sessions
+from canteen import sessions
+```
 
 **Non**
 
-Python
-From canteen import get_user # Symbole de la cantine / __ init__.py
-From canteen.sessions import get_session # Symbole de cantine / sessions.py
-......
+```python
+from canteen import get_user  # Symbol from canteen/__init__.py
+from canteen.sessions import get_session  # Symbol from canteen/sessions.py
+```
 
-* Exception *: Pour le code tiers où la documentation dit explicitement d'importer des symboles individuels.
-
-* Justification *: Evite les importations circulaires. Voir [ici] (https://sites.google.com/a/khanacademy.org/forge/for-developers/styleguide/python#TOC-Imports).
-
-Mettez toutes les importations en haut de la page avec trois sections, chacune séparée par une ligne vide, dans cet ordre:
+Mettez tous les imports en haut de la page avec trois sections, chacune séparée par une ligne vide, dans cet ordre:
 
 1. Importations de systèmes
 2. Importations tierces
-3. Importations d'arbres sources locales
-
-* Raison *: Indique clairement d'où provient chaque module.
+3. Importations de branches de sources locales
 
 #### Documentation
 
@@ -203,3 +204,26 @@ Lorsque vous écrivez des commentaires, n'oubliez pas: "Strunk et blanc s'appliq
 Ne pas le stress sur elle. 80-100 caractères est très bien.
 
 Utilisez des parenthèses pour les suites de lignes.
+
+
+
+
+## Bibliographie
+
+- [PEP 20 (The Zen of Python)][PEP 20]
+- [PEP 8 (Style Guide for Python)][PEP 8]
+- [The Hitchiker's Guide to Python][python-guide]
+- [Khan Academy Development Docs][]
+- [Python Best Practice Patterns][]
+- [Pythonic Sensibilities][]
+- [The Pragmatic Programmer][]
+- and many other bits and bytes
+
+[Pythonic Sensibilities]: http://www.nilunder.com/blog/2013/08/03/pythonic-sensibilities/
+[Python Best Practice Patterns]: http://youtu.be/GZNUfkVIHAY
+[python-guide]: http://docs.python-guide.org/en/latest/
+[PEP 20]: http://www.python.org/dev/peps/pep-0020/
+[PEP 257]: http://www.python.org/dev/peps/pep-0257/
+[PEP 8]: http://www.python.org/dev/peps/pep-0008/
+[Khan Academy Development Docs]: https://sites.google.com/a/khanacademy.org/forge/for-developers
+[The Pragmatic Programmer]: http://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X/ref=sr_1_1?ie=UTF8&qid=1381886835&sr=8-1&keywords=pragmatic+programmer
