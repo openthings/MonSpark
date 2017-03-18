@@ -183,7 +183,46 @@ wiki = (
     "bli bli bli ..."
 )
 ```
+### Développement piloté par les tests
+Le Test Driven Development est une méthode de programmation qui permet d’éviter des bugs a priori plutôt que de les résoudre a posteriori. Ce n’est pas une méthode propre à Python, elle est utilisée très largement par les programmeurs professionnels.
 
+Le cycle préconisé par TDD comporte cinq étapes :
+
+1. écrire un premier test ;
+2. vérifier qu’il échoue (puisque le code qu’il teste n’existe pas encore), afin de s’assurer que le test est valide et exécuté ;
+3. écrire un code minimal pour passer le test ;
+4. vérifier que le test passe correctement ;
+5. éventuellement « réusiner » le code (refactoring), c’est-à-dire l’améliorer (rapidité, lisibilité) tout en gardant les mêmes fonctionnalités.
+
+Diviser pour mieux régner: chaque fonction, classe ou méthode est testée indépendemment. Ainsi, lorsqu’un nouveau morceau de code ne passe pas les tests qui y sont associés, il est certain que l’erreur provient de cette nouvelle partie et non des fonctions ou objets que ce morceau de code utilise. On distingue ainsi hiérarchiquement:
+
+1. Les tests unitaires vérifient individuellement chacune des fonctions, méthodes, etc.
+2. Les tests d’intégration évaluent les interactions entre différentes unités du programmes.
+3. Les tests système assurent le bon fonctionnement du programme dans sa globalité.
+
+Il est essentiel de garder tous les tests au cours du développement, ce qui permet de les réutiliser lorsque l’on veut compléter ou améliorer une partie du code. Si le nouveau code passe toujours les anciens test, on est alors sûr de ne pas avoir cassé les fonctionnalités précédentes.
+```
+import unittest
+import os
+import mock
+
+
+def simple_urandom(length):
+    return 'f' * length
+
+
+class TestRandom(unittest.TestCase):
+    @mock.patch('os.urandom', side_effect=simple_urandom)
+    def test_urandom(self, urandom_function):
+        assert os.urandom(5) == 'fffff'
+ ```       
+**Attention** : Prendre l'habitude de tester toute fonction développé. Mais attention d'en faire une obssession.
+
+#### Tests unitaires
+... TODO 
+
+#### Tests fonctionnels
+ ... TODO 
 
 ## Bibliographie
 
