@@ -203,18 +203,13 @@ Diviser pour mieux régner: chaque fonction, classe ou méthode est testée ind�
 Il est essentiel de garder tous les tests au cours du développement, ce qui permet de les réutiliser lorsque l’on veut compléter ou améliorer une partie du code. Si le nouveau code passe toujours les anciens test, on est alors sûr de ne pas avoir cassé les fonctionnalités précédentes.
 ```
 import unittest
-import os
-import mock
 
+def fun(x):
+    return x + 1
 
-def simple_urandom(length):
-    return 'f' * length
-
-
-class TestRandom(unittest.TestCase):
-    @mock.patch('os.urandom', side_effect=simple_urandom)
-    def test_urandom(self, urandom_function):
-        assert os.urandom(5) == 'fffff'
+class MyTest(unittest.TestCase):
+    def test_func(self):
+        self.assertEqual(fun(3), 4)
  ```       
 **Attention** : Prendre l'habitude de tester toute fonction développé. Mais attention d'en faire une obssession.
 
