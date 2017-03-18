@@ -41,7 +41,6 @@ Quelques règles extraiyent à partir de [PEP 8].
 
 **Bien**
 ```
-Python
 Pour e dans les éléments:
     E.mutate ()
 ```
@@ -50,7 +49,6 @@ Pour e dans les éléments:
 
 **Oui**
 ```
-Python
 Import audio
 
 Core = audio.Core ()
@@ -59,7 +57,6 @@ Controller = audio.Controller ()
 
 **Non**
 ```
-Python
 Import audio
 
 Core = audio.AudioCore ()
@@ -70,7 +67,6 @@ Préférer la notation inverse.
 
 **Oui**
 ```
-Python
 Elements = ...
 Elements_active = ...
 Elements_defunct = ...
@@ -78,7 +74,6 @@ Elements_defunct = ...
 
 **Non**
 ```
-Python
 Elements = ...
 Active_elements = ...
 Defunct_elements ...
@@ -88,12 +83,10 @@ Defunct_elements ...
 
 **Oui**
 ```
-Python
 Person.age = 42
 ```
 **Non**
 ```
-Python
 Person.set_age (42)
 ```
 
@@ -108,7 +101,7 @@ Par exemple, pour un module `canteen` qui possède un fichier `canteen/sessions.
 
 **Oui**
 
-```python
+```
 import canteen
 import canteen.sessions
 from canteen import sessions
@@ -116,7 +109,7 @@ from canteen import sessions
 
 **Non**
 
-```python
+```
 from canteen import get_user  # Symbol from canteen/__init__.py
 from canteen.sessions import get_session  # Symbol from canteen/sessions.py
 ```
@@ -128,13 +121,11 @@ Mettez tous les imports en haut de la page avec trois sections, chacune séparé
 3. Importations de branches de sources locales
 
 #### Documentation
+Une seule ligne (docstrings) par fonction
 
-Suivez les directives de docstring [PEP 257] []. [ReStructured Text] (http://docutils.sourceforge.net/docs/user/rst/quickref.html) et [Sphinx] (http://sphinx-doc.org/) peuvent aider à faire respecter ces normes.
-
-Utilisez des docstrings à une ligne pour des fonctions évidentes.
-
-Python
-"" "Renvoie le chemin d'accès de` `foo``." ""
+```
+"""Retourne le chemin d'accès de ``foo``."""
+```
 ......
 
 Les chaînes de caractères multilignes
@@ -144,68 +135,54 @@ Les chaînes de caractères multilignes
 - Args
 - Type de retour et sémantique, sauf si «None» est renvoyé
 
-Python
-"" "Former un modèle pour classer Foos et Bars.
-
-Usage::
-
-    >>> import klassify
-    >>> données = [("vert", "foo"), ("orange", "bar")]
-    >>> classifier = klassify.train (données)
-
-: Param train_data: Liste des tuples de la forme `` (color, label) ``.
-: Rtype: A: class: `Classifier <Classifier>`
-"" "
-......
-
-Remarques
-
-- Utilisez des mots d'action («Retour») plutôt que des descriptions («Retours»).
-- Document `__init__` méthodes dans le docstring pour la classe.
-
-Python
+```
 Classe Personne (objet):
     - Une simple représentation d'un être humain.
 
-    : Param nom: Une chaîne, le nom de la personne.
+    : Param name: Une chaîne, le nom de la personne.
     : Param age: Un int, l'âge de la personne.
     "" "
-    Def __init __ (nom, prénom, âge):
-        Self.name = name
-        Self.age = âge
-......
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+```
+
+Outils de documentation, ou comment transformer automagiquement un code-source bien documenté en une documentation fonctionnelle: 
+- Les directives de docstring [PEP 257]. 
+- ReStructured Text (http://docutils.sourceforge.net/docs/user/rst/quickref.html) et 
+- [Sphinx] (http://sphinx-doc.org/)
 
 ##### Sur les commentaires
 
 Utilisez-les avec parcimonie. Préférez la lisibilité du code à l'écriture de beaucoup de commentaires. Souvent, les petites méthodes sont plus efficaces que les commentaires.
 
 *Non*
-
-Python
-# Si le signe est un stop
-Si sign.color == 'rouge' et sign.sides == 8:
-    Arrêtez()
-......
+```
+if sign.color == 'red' and sign.sides == 8:
+    stop()
+```
 
 *Oui*
+```
+def is_stop_sign(sign):
+    return sign.color == 'red' and sign.sides == 8
 
-Python
-Def is_stop_sign (signer):
-    Return sign.color == 'rouge' et sign.sides == 8
-
-Si is_stop_sign (signe):
-    Arrêtez()
-......
-
-Lorsque vous écrivez des commentaires, n'oubliez pas: "Strunk et blanc s'appliquent." - [PEP 8] []
+if is_stop_sign(sign):
+    stop()
+```
 
 #### Longueur des lignes
 
-Ne pas le stress sur elle. 80-100 caractères est très bien.
+80-100 caractères c'est très bien.
 
 Utilisez des parenthèses pour les suites de lignes.
-
-
+```
+wiki = (
+    "bla bla bla ..."
+    "bla blo blo ..."
+    "bli bli bli ..."
+)
+```
 
 
 ## Bibliographie
